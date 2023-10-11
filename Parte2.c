@@ -45,7 +45,7 @@ int main(){
 	printf("El máximo con la función encontrarMáximo es: %d\n", maximo);
 
 	int minimo = encontrarMinimo(arreglo, longitud);
-        printf("El mínimo con la función encontrarMínimo es: %d\n", minimo);
+        printf("El minimo con la función encontrarMínimo es: %d\n", minimo);
 
 	int max;
 	int min;
