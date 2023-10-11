@@ -15,10 +15,9 @@ int busquedaLineal(int arreglo[], int numero, int longitud){
 int busquedaBinaria(int arreglo[], int numero, int longitud){
     int inicio = 0;
     int final = longitud-1;
-    int mitad;
 
     while(inicio <= final){
-        mitad = (inicio + final) / 2;
+	int mitad = (inicio + final) / 2;
 
         if(arreglo[mitad] == numero){
             return mitad+1;
@@ -35,26 +34,21 @@ int busquedaBinaria(int arreglo[], int numero, int longitud){
 
 }
 
-int busquedaRecursiva(int arreglo[], int numero, int longitud){
-    int inicio = 0;
-    int final = longitud-1;
-    int mitad;
+int busquedaRecursiva(int arreglo[], int numero, int inicio, int final){
+    int mitad = (inicio + final)/2;
 
-    while(inicio <= final){
-        mitad = (inicio + final) / 2;
-
-        if(arreglo[mitad] == numero){
-            return mitad+1;
-        }
-	else if(numero < arreglo[mitad]){
-            final = mitad-1;
-        }
-	else{
-            inicio = mitad+1;
-        }
+    if(arreglo[mitad] == numero){
+        return mitad+1;
     }
-    return -1;
+    if(inicio > final){
+        return -1;
+    }
 
+    if(numero < arreglo[mitad]){
+        return busquedaRecursiva(arreglo,numero,inicio, mitad-1);
+    }else{
+        return busquedaRecursiva(arreglo,numero,mitad+1, final);
+    }
 }
 
 int main(){
@@ -82,7 +76,7 @@ int main(){
         printf("Con búsqueda binaria el número no está en el arreglo\n");
     }
 
-    posicion = busquedaRecursiva(arreglo,numero,longitud);
+    posicion = busquedaRecursiva(arreglo,numero,0,longitud-1);
 
     if(posicion != -1){
         printf("Con búsqueda recursiva el número está en la posición: %d \n",posicion);
