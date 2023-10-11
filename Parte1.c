@@ -71,7 +71,7 @@ int main(){
     posicion = busquedaBinaria(arreglo,numero,longitud);
 
     if(posicion != -1){
-        printf("Con búsqueda binaria el número está en la posición: %d \n",posicion);
+        printf("Con busqueda binaria el número está en la posición: %d \n",posicion);
     }else{
         printf("Con búsqueda binaria el número no está en el arreglo\n");
     }
