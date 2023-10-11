@@ -6,7 +6,9 @@ int encontrarMaximo(int arreglo[], int longitud){
 		if(arreglo[i]> max){
 			max = arreglo[i];
 		}
-	}include <stdio.h>
+	}
+	return max;
+}
 
 
 int encontrarMinimo(int arreglo[], int longitud){
@@ -27,6 +29,12 @@ void encontrarMaxMin(int *arreglo, int *min, int *max, int longitud){
                         *max = *(arreglo+i);
                 }
         }
+        for(int i=1;i<longitud;i++){
+                if(*(arreglo+i) < *min){
+                        *min = *(arreglo+i);
+                }
+        }
+
 }
 
 int main(){
